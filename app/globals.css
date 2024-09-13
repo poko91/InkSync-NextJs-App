@@ -26,4 +26,8 @@
   .gradient-red {
     @apply bg-gradient-to-t from-red-500 to-red-400;
   }
+
+  .document-title {
+    @apply line-clamp-1 border-dark-400 text-base font-semibold leading-[24px] sm:pl-0 sm:text-xl;
+  }
 }
