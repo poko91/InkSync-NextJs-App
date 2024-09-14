@@ -30,4 +30,9 @@
   .document-title {
     @apply line-clamp-1 border-dark-400 text-base font-semibold leading-[24px] sm:pl-0 sm:text-xl;
   }
+
+  /* ======== Auth Pages */
+  .auth-page {
+    @apply flex h-screen w-full flex-col items-center justify-center gap-10;
+  }
 }
