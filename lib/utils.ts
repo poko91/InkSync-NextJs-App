@@ -36,3 +36,5 @@ export function getUserColor(userId: string) {
   const colorIndex = sum % brightColors.length;
   return brightColors[colorIndex];
 }
+
+export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
