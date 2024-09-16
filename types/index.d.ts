@@ -14,3 +14,14 @@ declare type AddDocumentBtnProps = {
   userId: string;
   email: string;
 };
+
+declare type SearchParamProps = {
+  params: {
+    id: string;
+  };
+};
+
+declare type CollaborativeRoomProps = {
+  roomId: string;
+  roomMetadata: RoomMetadata;
+};
