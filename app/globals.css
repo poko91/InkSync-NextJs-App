@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@liveblocks/react-ui/styles.css";
+@import "@liveblocks/react-lexical/styles.css";
 @import "../styles/dark-theme.css";
 
 @layer base {
@@ -31,8 +33,17 @@
     @apply line-clamp-1 border-dark-400 text-base font-semibold leading-[24px] sm:pl-0 sm:text-xl;
   }
 
+  .loader {
+    @apply flex size-full h-screen items-center justify-center gap-3 text-white;
+  }
+
   /* ======== Auth Pages */
   .auth-page {
     @apply flex h-screen w-full flex-col items-center justify-center gap-10;
+  }
+
+  /* ======== CollaborativeRoom */
+  .collaborative-room {
+    @apply flex size-full max-h-screen flex-1 flex-col items-center overflow-hidden;
   }
 }
