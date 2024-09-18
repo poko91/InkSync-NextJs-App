@@ -14,11 +14,11 @@ const Document = async ({ params: { id } }: SearchParamProps) => {
     userId: clerkUser.emailAddresses[0].emailAddress,
   });
 
-  if (!room) redirect("/documents/");
+  if (!room) redirect("/documents");
 
   return (
     <div className="flex w-full flex-col items-center">
-      <CollaborativeRoom roomId={id} roomMetadata={room.metaData} />
+      <CollaborativeRoom roomId={id} roomMetadata={room.metadata} />
     </div>
   );
 };

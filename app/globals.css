@@ -29,10 +29,6 @@
     @apply bg-gradient-to-t from-red-500 to-red-400;
   }
 
-  .document-title {
-    @apply line-clamp-1 border-dark-400 text-base font-semibold leading-[24px] sm:pl-0 sm:text-xl;
-  }
-
   .loader {
     @apply flex size-full h-screen items-center justify-center gap-3 text-white;
   }
@@ -41,18 +37,34 @@
     @apply min-h-[92px] min-w-full flex-nowrap bg-dark-100 flex w-full items-center justify-between gap-2 px-4;
   }
 
-  /* ======== Auth Pages */
+  .pointer {
+    @apply cursor-pointer;
+  }
+
+  /* ======== Auth Section */
   .auth-page {
     @apply flex h-screen w-full flex-col items-center justify-center gap-10;
   }
 
-  /* ======================== Documents Page */
+  /* ======================== Documents Section */
   .documents-container {
     @apply relative flex min-h-screen w-full flex-col items-center gap-5 sm:gap-10;
   }
 
   .document-list-empty {
     @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
+  }
+
+  .document-title {
+    @apply line-clamp-1 border-dark-400 text-base font-semibold leading-[24px] sm:pl-0 sm:text-xl;
+  }
+
+  .document-title-input {
+    @apply min-w-[78px] border-none bg-transparent px-0 text-left text-base font-semibold leading-[24px] focus-visible:ring-0 focus-visible:ring-offset-0 disabled:text-black sm:text-xl md:text-center !important;
+  }
+
+  .view-only-tag {
+    @apply rounded-md bg-dark-400/50 px-2 py-0.5 text-xs text-blue-100/50;
   }
 
   /* ======== CollaborativeRoom */

@@ -6,6 +6,8 @@ import { revalidatePath } from "next/cache";
 import { parseStringify } from "../utils";
 import { nanoid } from "nanoid";
 
+// Actions to manage
+
 export const createDocument = async ({ userId, email }: CreateDocumentParams) => {
   const roomId = nanoid();
 
@@ -26,7 +28,7 @@ export const createDocument = async ({ userId, email }: CreateDocumentParams) =>
       defaultAccesses: ["room:write"],
     });
 
-    revalidatePath("/documents/");
+    revalidatePath("/documents");
     return parseStringify(room);
   } catch (error) {
     console.log(`Error occurred while creating a room: ${error}`);
@@ -36,6 +38,7 @@ export const createDocument = async ({ userId, email }: CreateDocumentParams) =>
 export const getDocument = async ({ roomId, userId }: { roomId: string; userId: string }) => {
   try {
     const room = await liveblocks.getRoom(roomId);
+
     // const hasAccess = Object.keys(room.usersAccesses).includes(userId);
 
     // if (!hasAccess) {
@@ -45,5 +48,21 @@ export const getDocument = async ({ roomId, userId }: { roomId: string; userId: 
     return parseStringify(room);
   } catch (error) {
     console.log(`Error occurred while getting a room : ${error}`);
+  }
+};
+
+export const updateDocument = async (roomId: string, title: string) => {
+  try {
+    const updatedRoom = await liveblocks.updateRoom(roomId, {
+      metadata: {
+        title,
+      },
+    });
+
+    revalidatePath(`documents/${roomId}`);
+
+    return parseStringify(updatedRoom);
+  } catch (error) {
+    console.log(`Error occurred while updating the room`);
   }
 };
