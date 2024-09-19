@@ -47,3 +47,5 @@ declare type User = {
 };
 
 declare type EditorProps = { roomId: string; currentUserType: UserType };
+
+declare type ThreadWrapperProps = { thread: ThreadData<BaseMetadata> };
