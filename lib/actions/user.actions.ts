@@ -1,7 +1,8 @@
 "use server";
 
-import { clerkClient } from "@clerk/nextjs/server";
+import { clerkClient, currentUser } from "@clerk/nextjs/server";
 import { parseStringify } from "../utils";
+import { liveblocks } from "../liveblocks";
 
 export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
   try {
@@ -22,5 +23,21 @@ export const getClerkUsers = async ({ userIds }: { userIds: string[] }) => {
     return parseStringify(sortedUsers);
   } catch (error) {
     console.log(`Error fetching Users: ${error}`);
+  }
+};
+
+export const getDocumentUsers = async ({ roomId, currentUser, text }: { roomId: string; currentUser: string | undefined; text: string }) => {
+  try {
+    const room = await liveblocks.getRoom(roomId);
+    const users = Object.keys(room.usersAccesses).filter((email) => email !== currentUser);
+
+    if (text.length) {
+      const filteredUsers = users.filter((email) => email.toLowerCase().includes(text.toLowerCase()));
+
+      return parseStringify(filteredUsers);
+    }
+    return parseStringify(users);
+  } catch (error) {
+    console.log(`Error fetching document users: ${error}`);
   }
 };
