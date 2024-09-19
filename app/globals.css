@@ -12,6 +12,25 @@
     color: #fff;
     margin: 0;
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #09090a;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #2e3d5b;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #7878a3;
+  }
 }
 
 @layer utilities {
@@ -81,6 +100,16 @@
 
   .view-only-tag {
     @apply rounded-md bg-dark-400/50 px-2 py-0.5 text-xs text-blue-100/50;
+  }
+
+  /* ======== Editor */
+
+  .toolbar-wrapper {
+    @apply z-50 custom-scrollbar w-screen overflow-auto border-y border-dark-300 bg-dark-100 pl-3 pr-4 shadow-sm;
+  }
+
+  .editor-wrapper {
+    @apply custom-scrollbar h-[calc(100vh-140px)] gap-5 overflow-auto px-5 pt-5 lg:flex-row lg:items-start lg:justify-center  xl:gap-10 xl:pt-10;
   }
 
   /* ======== CollaborativeRoom */
