@@ -101,8 +101,8 @@ const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: Col
             </div>
 
             <div className="flex w-full flex-1 justify-end gap-2 sm:gap-3">
-              <ActiveCollaborators />
               <ShareModal roomId={roomId} collaborators={users} creatorId={roomMetadata.creatorId} currentUserType={currentUserType} />
+              <ActiveCollaborators />
               <SignedOut>
                 <SignInButton />
               </SignedOut>
