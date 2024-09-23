@@ -5,6 +5,7 @@ import { liveblocks } from "../liveblocks";
 import { revalidatePath } from "next/cache";
 import { getAccessType, parseStringify } from "../utils";
 import { nanoid } from "nanoid";
+import { redirect } from "next/navigation";
 
 // Actions to manage
 
@@ -114,5 +115,15 @@ export const removeCollaborator = async ({ roomId, email }: { roomId: string; em
     return parseStringify(updatedRoom);
   } catch (error) {
     console.log(`Error occurred while removing collaborator: ${error}`);
+  }
+};
+
+export const deleteDocument = async (roomId: string) => {
+  try {
+    await liveblocks.deleteRoom(roomId);
+    revalidatePath("/");
+    redirect("/documents");
+  } catch (error: any) {
+    console.log(`Error occurred while deleting room: ${error.message}`);
   }
 };
