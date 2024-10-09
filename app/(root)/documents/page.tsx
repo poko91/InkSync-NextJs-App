@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { dateConverter } from "@/lib/utils";
+import DeleteModal from "@/components/DeleteModal";
+import Notifications from "@/components/Notifications";
 
 const DocumentsPage = async () => {
   const clerkUser = await currentUser();
@@ -18,7 +20,7 @@ const DocumentsPage = async () => {
     <main className="documents-container">
       <Header className="sticky left-0 top-0">
         <div className="flex items-center gap-2 lag:gap-4">
-          Notification
+          <Notifications />
           <SignedIn>
             <UserButton />
           </SignedIn>
@@ -43,6 +45,7 @@ const DocumentsPage = async () => {
                     <p className="text-sm font-light text-blue-100">Created about {dateConverter(createdAt)}</p>
                   </div>
                 </Link>
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>

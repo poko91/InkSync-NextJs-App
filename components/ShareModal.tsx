@@ -8,6 +8,8 @@ import { Button } from "./ui/button";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "./ui/input";
 import UserTypeSelector from "./UserTypeSelector";
+import Collaborator from "./Collaborator";
+import { updateDocumentAccess } from "@/lib/actions/room.actions";
 
 const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: ShareModalProps) => {
   const user = useSelf();
@@ -19,7 +21,14 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
   const [userType, setUserType] = useState<UserType>("viewer");
 
   const shareDocumentHandler = async () => {
-    console.log("shared document");
+    setLoading(true);
+    await updateDocumentAccess({
+      roomId,
+      email,
+      userType: userType as UserType,
+      updatedBy: user.info,
+    });
+    setLoading(false);
   };
 
   return (
@@ -47,6 +56,21 @@ const ShareModal = ({ roomId, collaborators, creatorId, currentUserType }: Share
           <Button type="submit" onClick={shareDocumentHandler} className="gradient-purple flex h-full gap-1 px-5" disabled={loading}>
             {loading ? "Sending" : "Invite"}
           </Button>
+        </div>
+
+        <div className="my-2 space-y-2">
+          <ul className="flex flex-col">
+            {collaborators.map((collaborator) => (
+              <Collaborator
+                key={collaborator.id}
+                collaborator={collaborator}
+                user={user.info}
+                roomId={roomId}
+                creatorId={creatorId}
+                email={collaborator.email}
+              />
+            ))}
+          </ul>
         </div>
       </DialogContent>
     </Dialog>

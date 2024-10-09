@@ -56,3 +56,24 @@ declare type ShareModalProps = {
   creatorId: string;
   currentUserType: UserType;
 };
+
+declare type UserTypeSelectorParams = {
+  userType: UserType;
+  setUserType: React.Dispatch<React.SetStateAction<UserType>>;
+  onClickHandler?: (value: string) => void;
+};
+
+declare type CollaboratorProps = {
+  roomId: string;
+  email: string;
+  creatorId: string;
+  collaborator: User;
+  user: User;
+};
+
+declare type ShareDocumentParams = {
+  roomId: string;
+  email: string;
+  userType: UserType;
+  updatedBy: User;
+};
