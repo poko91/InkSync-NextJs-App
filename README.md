@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# InkSync
 
-## Getting Started
+InkSync is a Next.js-based collaborative writing application designed to empower teams and individuals to work together in real-time. It serves as a clone of Google Docs, showcasing advanced real-time collaboration features and intuitive document management capabilities.  
 
-First, run the development server:
+The backend is powered by **Liveblocks**, ensuring seamless real-time updates, while the UI is styled using **Tailwind CSS** for a modern and responsive design.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot 2024-11-29 at 12 52 30 PM](https://github.com/user-attachments/assets/51d06645-017e-4cf2-a0ca-ef9e9febc5e5)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Screenshot 2024-11-29 at 12 59 17 PM](https://github.com/user-attachments/assets/1ad53aad-f8fc-490d-89da-74c5bd08e539)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features  
 
-To learn more about Next.js, take a look at the following resources:
+- **Document Management**: Create, edit, and delete documents with ease.  
+- **Collaborative Editing**: Real-time text editing with presence indicators for multiple users.  
+- **Access Control**: Manage document access with view/edit permissions.  
+- **Commenting System**: Add inline comments and participate in threaded discussions.  
+- **Notifications**: Stay updated with notifications for document shares, comments, and collaborator activity.  
+- **Authentication**: Secure user authentication via GitHub.  
+- **Responsive Design**: Optimized for both mobile and desktop devices.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack  
 
-## Deploy on Vercel
+**Client:** Next.js, TypeScript, Lexical Editor, Tailwind CSS  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Server:** Liveblocks API  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Authentication:** NextAuth with GitHub OAuth  
+
+**Styling:** ShadCN Components  
